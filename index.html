@@ -127,11 +127,16 @@ body:not(.exploring) #craft-quickbar,body:not(.exploring) #interaction-hint{visi
 body.sessions-open #journey-panel{visibility:hidden}
 
 </style>
+  <style>
+.interaction-stock{color:#d8c398!important;font-size:10px;line-height:1.6;max-width:310px}.tool-recipe-stats{margin:12px 0 0;padding-top:9px;border-top:1px solid #a6b87d26;color:#bfc9a0;font-size:10px;line-height:1.7}.tool-quality{position:absolute;top:3px;right:4px;color:#f0d39a;font-size:9px;font-weight:bold;line-height:12px;text-shadow:0 1px 3px #000;pointer-events:none}.real-slot[data-quality="2"]{border-color:#bcab6b88}.sound-toggle{min-height:44px;border:1px solid #a9bc7d66;color:#dddac1;background:#203b2b;border-radius:4px;padding:10px 14px;cursor:pointer}.sound-toggle[aria-pressed="true"]{color:#f0d39a;border-color:#d2b784}.sound-toggle:disabled{opacity:.5;cursor:default}.sound-toggle:focus-visible{outline:2px solid #e6cb93;outline-offset:3px}
+@media(max-width:760px){.interaction-stock{font-size:10px;max-width:220px}.tool-recipe-stats{font-size:11px}.tool-quality{font-size:8px;right:2px;top:2px}}
+
+</style>
 </head>
 <body>
   <section id="boot-screen" style="position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:24px;background:#10251c;color:#f0ead5;font:16px Arial,sans-serif;overflow:auto" aria-label="Abertura do ORIGEM">
     <div style="width:min(460px,100%);padding:28px;border:1px solid #708866;border-radius:8px;background:#172d22">
-      <small style="letter-spacing:3px;color:#d1b786">ORIGEM · 0.7.1</small>
+      <small style="letter-spacing:3px;color:#d1b786">ORIGEM · 0.8.0</small>
       <h1 id="boot-title" style="font:32px Georgia,serif;margin:22px 0">Preparando sua jornada</h1>
       <p id="boot-status" role="status" style="line-height:1.7">Carregando os arquivos do jogo…</p>
       <pre id="boot-error" hidden style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px monospace;background:#081a12;padding:14px;border:1px solid #b79c76;color:#ffe1bf"></pre>
@@ -175,7 +180,7 @@ body.sessions-open #journey-panel{visibility:hidden}
     </div>
 
     <section id="seed-panel" class="seed-panel panel" aria-label="Gerador de mundos">
-      <div class="panel-heading"><label for="seed-input" class="eyebrow">SEMENTE DO MUNDO</label><span class="version-tag">ALPHA 0.7.1</span></div>
+      <div class="panel-heading"><label for="seed-input" class="eyebrow">SEMENTE DO MUNDO</label><span class="version-tag">ALPHA 0.8.0</span></div>
       <form id="seed-form">
         <div class="seed-input-wrap"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m8 3-2 14m8-14-2 14M3 7h14M2 13h14" stroke="currentColor" stroke-width="1.3"/></svg><input id="seed-input" name="seed" type="text" value="mata-ancestral" maxlength="64" autocomplete="off" spellcheck="false" aria-label="Seed do mundo"><button id="random-seed" type="button" aria-label="Sortear uma nova seed" title="Sortear uma nova seed">↻</button></div>
         <button id="generate-button" type="submit">Gerar mundo <span aria-hidden="true">→</span></button>
@@ -198,7 +203,7 @@ body.sessions-open #journey-panel{visibility:hidden}
   <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
   <section id="help-panel" class="modal-layer hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
-    <div class="modal-card help-card"><button id="help-close" class="close-button" type="button" aria-label="Fechar ajuda">×</button><span class="eyebrow">GUIA DO EXPLORADOR</span><h2 id="help-title">O primeiro passo<br>é explorar.</h2><p>Siga os primeiros passos: fibras, corda, machado e bancada.</p><dl class="control-list"><div><dt><kbd>WASD</kbd> <span>ou</span> <kbd>↑ ↓ ← →</kbd></dt><dd>Mover o personagem</dd></div><div><dt><kbd>SHIFT</kbd></dt><dd>Segurar para correr</dd></div><div><dt><kbd>E</kbd></dt><dd>Segurar: coletar · Toque: interagir</dd></div><div><dt><kbd>C</kbd> <kbd>I</kbd></dt><dd>Inventário e 12 receitas</dd></div><div><dt><kbd>M</kbd></dt><dd>Abrir ou fechar o mapa</dd></div><div><dt><kbd>+</kbd> <kbd>−</kbd></dt><dd>Ajustar a câmera</dd></div><div><dt><kbd>ESC</kbd></dt><dd>Fechar os painéis</dd></div></dl><p class="help-note">No celular, use o controle de toque para andar e segure “Correr” para acelerar.</p><div class="prototype-note"><span class="status-dot"></span><span>Segure E nas moitas para obter fibras. C abre as receitas. Equipe suas ferramentas para trabalhar.<br>Coloque bancada e fogueira no chão para usá-las. Lança sem combate nesta etapa.</span></div></div>
+    <div class="modal-card help-card"><button id="help-close" class="close-button" type="button" aria-label="Fechar ajuda">×</button><span class="eyebrow">GUIA DO EXPLORADOR</span><h2 id="help-title">O primeiro passo<br>é explorar.</h2><p>Siga os primeiros passos: fibras, corda, machado e bancada.</p><dl class="control-list"><div><dt><kbd>WASD</kbd> <span>ou</span> <kbd>↑ ↓ ← →</kbd></dt><dd>Mover o personagem</dd></div><div><dt><kbd>SHIFT</kbd></dt><dd>Segurar para correr</dd></div><div><dt><kbd>E</kbd></dt><dd>Segurar: coletar · Toque: interagir</dd></div><div><dt><kbd>C</kbd> <kbd>I</kbd></dt><dd>Inventário e 12 receitas</dd></div><div><dt><kbd>M</kbd></dt><dd>Abrir ou fechar o mapa</dd></div><div><dt><kbd>+</kbd> <kbd>−</kbd></dt><dd>Ajustar a câmera</dd></div><div><dt><kbd>ESC</kbd></dt><dd>Fechar os painéis</dd></div></dl><button id="sound-toggle" type="button" class="sound-toggle" aria-pressed="false">Sons da coleta: desligados</button><p class="help-note">No celular, use o controle de toque para andar e segure “Correr” para acelerar.</p><div class="prototype-note"><span class="status-dot"></span><span>Segure E nas moitas para obter fibras. C abre as receitas. Equipe suas ferramentas para trabalhar.<br>Coloque bancada e fogueira no chão para usá-las. Lança sem combate nesta etapa.</span></div></div>
   </section>
 
   <section id="map-panel" class="modal-layer hidden" role="dialog" aria-modal="true" aria-labelledby="map-title">
@@ -777,11 +782,12 @@ body.sessions-open #journey-panel{visibility:hidden}
 (function (root) {
   'use strict';
   const DURABILITY = { stone_axe: 60, stone_pickaxe: 80, stone_spear: 100, torch: 180 };
+  const WORK_TYPE = { stone_axe: 'axe', stone_pickaxe: 'pickaxe' };
   const item = (id, name, description, kind, color) => Object.freeze({
     id, name, description, kind, category: id === 'stone_spear' ? 'weapon' : kind, color,
     maxStack: kind === 'tool' ? 1 : kind === 'food' || kind === 'structure' ? 16 : 64,
     durability: DURABILITY[id] || null,
-    properties: Object.freeze(kind === 'tool' ? { equipment: Object.freeze(id === 'torch' ? ['mainHand', 'offHand'] : ['mainHand']), wear: id === 'torch' ? 'seconds' : 'harvest' } : {})
+    properties: Object.freeze(kind === 'tool' ? { equipment: Object.freeze(id === 'torch' ? ['mainHand', 'offHand'] : ['mainHand']), wear: id === 'torch' ? 'seconds' : 'harvest', workType: WORK_TYPE[id] || null, quality: 1, workSpeed: 1 } : {})
   });
   const ITEMS = Object.freeze({
     branch: item('branch', 'Galho', 'Retirado dos ramos das árvores ou de troncos caídos.', 'resource', '#ad8050'),
@@ -809,6 +815,40 @@ body.sessions-open #journey-panel{visibility:hidden}
 })(typeof window === 'undefined' ? globalThis : window);
 
 </script>
+<script data-module="src/inventory/tools.js">
+/* Qualidade é da instância; velocidade e limite de desgaste vêm deste catálogo. */
+(function (root) {
+  'use strict';
+  const ITEMS = root.ForestItems;
+  const QUALITIES = Object.freeze({
+    1: Object.freeze({ id: 1, name: 'Rústica', workSpeed: 1, durabilityFactor: 1 }),
+    2: Object.freeze({ id: 2, name: 'Bem acabada', workSpeed: 1.35, durabilityFactor: 1.25 })
+  });
+  function isHarvestTool(id) { return ['axe', 'pickaxe'].includes(ITEMS[id]?.properties.workType); }
+  function qualityOf(instance) {
+    if (!instance?.properties || !Object.hasOwn(instance.properties, 'quality')) return 1;
+    const value = instance.properties.quality;
+    return Number.isInteger(value) && Object.hasOwn(QUALITIES, value) ? value : null;
+  }
+  function profile(instance) {
+    const definition = ITEMS[instance?.itemId]; if (!definition || definition.kind !== 'tool') return null;
+    const quality = isHarvestTool(definition.id) ? qualityOf(instance) : 1;
+    if (quality == null) return null;
+    const grade = QUALITIES[quality], workSpeed = isHarvestTool(definition.id) ? grade.workSpeed * definition.properties.workSpeed : 1;
+    return { itemId: definition.id, quality, qualityName: grade.name, workType: definition.properties.workType || null,
+      workSpeed, maxDurability: Math.round(definition.durability * (isHarvestTool(definition.id) ? grade.durabilityFactor : 1)), durability: instance.durability };
+  }
+  function optionsFor(id, quality = 1) {
+    if (!isHarvestTool(id) || !Number.isInteger(quality) || !Object.hasOwn(QUALITIES, quality)) return {};
+    const prototype = { itemId: id, properties: { quality } };
+    return { properties: prototype.properties, durability: profile(prototype).maxDurability };
+  }
+  function craftedOptions(id, stations) { return optionsFor(id, stations?.workbench === true ? 2 : 1); }
+  function maxDurability(instance) { return profile(instance)?.maxDurability ?? ITEMS[instance?.itemId]?.durability ?? null; }
+  root.ForestTools = Object.freeze({ QUALITIES, isHarvestTool, qualityOf, profile, optionsFor, craftedOptions, maxDurability });
+})(typeof window === 'undefined' ? globalThis : window);
+
+</script>
 <script data-module="src/inventory/inventory.js">
 /* Slots são a única fonte de quantidades. Operações validam a cópia inteira antes
  * de confirmar; nunca removemos um item ao iniciar um gesto de arrastar. */
@@ -822,7 +862,17 @@ body.sessions-open #journey-panel{visibility:hidden}
   function uid() { return root.crypto?.randomUUID?.() || 'item-' + Date.now().toString(36) + '-' + (++sequence).toString(36) + '-' + Math.random().toString(36).slice(2); }
   const cleanCount = n => typeof n === 'number' && Number.isFinite(n) ? Math.min(MAX_ITEMS, Math.max(0, Math.floor(n))) : 0;
   const validAmount = n => Number.isSafeInteger(n) && n > 0 && n <= MAX_ITEMS;
-  const stack = (itemId, quantity) => ({ uid: uid(), itemId, quantity, durability: ITEMS[itemId].durability, properties: {} });
+  function stack(itemId, quantity, options = {}) {
+    if (!options || typeof options !== 'object' || Array.isArray(options) || Object.hasOwn(options, 'properties') && (!options.properties || typeof options.properties !== 'object' || Array.isArray(options.properties))) return null;
+    let properties; try { properties = options.properties ? clone(options.properties) : {}; } catch (_) { return null; }
+    if (JSON.stringify(properties).length > 2000) return null;
+    const prototype = { itemId, properties };
+    const maximum = root.ForestTools.maxDurability(prototype);
+    if (root.ForestTools.isHarvestTool(itemId) && root.ForestTools.qualityOf(prototype) == null) return null;
+    const durability = options.durability == null ? maximum : options.durability;
+    if (maximum == null ? durability !== null : !Number.isFinite(durability) || durability <= 0 || durability > maximum) return null;
+    return { uid: uid(), itemId, quantity, durability, properties };
+  }
   const newInventory = () => ({ version: VERSION, hotbar: Array(HOTBAR).fill(null), backpack: Array(BACKPACK).fill(null), equipment: Object.fromEntries(EQUIPMENT.map(k => [k, null])), selected: 0, useEquipment: false, overflow: [] });
   const newChest = () => ({ version: VERSION, slots: Array(CHEST).fill(null), overflow: [] });
   function refs(state, bag = 'inventory', recovery = true) {
@@ -849,11 +899,12 @@ body.sessions-open #journey-panel{visibility:hidden}
   function reconcile(state) { const torch = state.inventory.equipment.offHand?.itemId === 'torch' ? state.inventory.equipment.offHand : active(state); if (!state.litTorch || torch?.itemId !== 'torch' || torch.uid !== state.torchUid) { state.litTorch = false; state.torchUid = null; } }
   function commit(state, draft) { state.inventory = draft.inventory; state.chest = draft.chest; reconcile(state); }
   // Cria pilhas somente no espaço carregável; recuperação é exclusiva dos saves antigos.
-  function addTo(draft, id, amount, bag = 'inventory') {
+  function addTo(draft, id, amount, bag = 'inventory', options = {}) {
+    const template = stack(id, 1, options); if (!template) return false;
     let left = amount;
     const slots = refs(draft, bag, false).filter(ref => ref.bag !== 'equipment');
-    for (const ref of slots) { const s = get(draft, ref); if (s && same(s, { itemId: id, durability: ITEMS[id].durability, properties: {} })) { const n = Math.min(left, ITEMS[id].maxStack - s.quantity); s.quantity += n; left -= n; if (!left) return true; } }
-    for (const ref of slots) if (!get(draft, ref)) { const n = Math.min(left, ITEMS[id].maxStack); set(draft, ref, stack(id, n)); left -= n; if (!left) return true; }
+    for (const ref of slots) { const s = get(draft, ref); if (s && same(s, template)) { const n = Math.min(left, ITEMS[id].maxStack - s.quantity); s.quantity += n; left -= n; if (!left) return true; } }
+    for (const ref of slots) if (!get(draft, ref)) { const n = Math.min(left, ITEMS[id].maxStack); set(draft, ref, stack(id, n, options)); left -= n; if (!left) return true; }
     return left === 0;
   }
   function consume(draft, id, amount) {
@@ -862,15 +913,15 @@ body.sessions-open #journey-panel{visibility:hidden}
     for (const ref of refs(draft)) { const s = get(draft, ref); if (s?.itemId !== id) continue; const n = Math.min(s.quantity, left); s.quantity -= n; left -= n; if (!s.quantity) set(draft, ref, null); if (!left) return true; }
     return false;
   }
-  function transaction(state, remove = {}, add = {}, apply = true) {
+  function transaction(state, remove = {}, add = {}, apply = true, itemOptions = {}) {
     if (!state?.inventory || !state?.chest || ![remove, add].every(batch => batch && Object.entries(batch).every(([id, n]) => Object.hasOwn(ITEMS, id) && validAmount(n)))) return false;
     const draft = { inventory: clone(state.inventory), chest: clone(state.chest) };
     for (const [id, n] of Object.entries(remove)) if (!consume(draft, id, n)) return false;
-    for (const [id, n] of Object.entries(add)) if (!addTo(draft, id, n)) return false;
+    for (const [id, n] of Object.entries(add)) if (!addTo(draft, id, n, 'inventory', itemOptions[id])) return false;
     if (apply) commit(state, draft);
     return true;
   }
-  const addItem = (state, id, n = 1) => transaction(state, {}, { [id]: n });
+  const addItem = (state, id, n = 1, options = {}) => transaction(state, {}, { [id]: n }, true, { [id]: options });
   const removeItem = (state, id, n = 1) => transaction(state, { [id]: n });
   function removeAt(state, ref, n = 1, expectedUid) {
     const s = get(state, ref);
@@ -924,7 +975,8 @@ body.sessions-open #journey-panel{visibility:hidden}
     for (const ref of [...refs(state), ...refs(state, 'chest')]) {
       const s = get(state, ref); if (s === null) continue;
       const d = s && Object.hasOwn(ITEMS, s.itemId) && ITEMS[s.itemId];
-      if (!d || typeof s.uid !== 'string' || !s.uid || s.uid.length > 150 || seen.has(s.uid) || !Number.isInteger(s.quantity) || s.quantity < 1 || s.quantity > d.maxStack || (d.durability == null ? s.durability !== null : !Number.isFinite(s.durability) || s.durability <= 0 || s.durability > d.durability) || !s.properties || typeof s.properties !== 'object' || Array.isArray(s.properties) || JSON.stringify(s.properties).length > 2000 || !accepts(ref, s)) throw Error('Pilha, durabilidade ou ID duplicado inválido.');
+      if (!d || typeof s.uid !== 'string' || !s.uid || s.uid.length > 150 || seen.has(s.uid) || !Number.isInteger(s.quantity) || s.quantity < 1 || s.quantity > d.maxStack || (d.durability == null ? s.durability !== null : !Number.isFinite(s.durability) || s.durability <= 0 || s.durability > root.ForestTools.maxDurability(s)) || !s.properties || typeof s.properties !== 'object' || Array.isArray(s.properties) || JSON.stringify(s.properties).length > 2000 || !accepts(ref, s)) throw Error('Pilha, durabilidade ou ID duplicado inválido.');
+      if (root.ForestTools.isHarvestTool(s.itemId) && root.ForestTools.qualityOf(s) == null) throw Error('Qualidade de ferramenta inválida.');
       seen.add(s.uid);
     }
     return true;
@@ -1031,14 +1083,17 @@ body.sessions-open #journey-panel{visibility:hidden}
     if (!entry) return { ok: false, missing: [], stationMissing: null, recipe: null, reason: 'unknown_recipe' };
     const missing = Object.entries(entry.ingredients).filter(([id, amount]) => countOf(state, id) < amount).map(([id, amount]) => ({ item: id, have: countOf(state, id), need: amount }));
     const stationMissing = entry.station !== 'hand' && (!stations || stations[entry.station] !== true) ? entry.station : null;
-    const capacity = missing.length === 0 && !root.ForestInventory.transaction(state, entry.ingredients, { [entry.output.item]: entry.output.count }, false);
-    return { ok: !!state?.inventory && missing.length === 0 && !stationMissing && !capacity, missing, stationMissing, recipe: entry, reason: capacity ? 'capacity' : null };
+    const outputOptions = root.ForestTools.craftedOptions(entry.output.item, stations);
+    const capacity = missing.length === 0 && !root.ForestInventory.transaction(state, entry.ingredients, { [entry.output.item]: entry.output.count }, false, { [entry.output.item]: outputOptions });
+    return { ok: !!state?.inventory && missing.length === 0 && !stationMissing && !capacity, missing, stationMissing, recipe: entry, outputOptions, toolStats: root.ForestTools.profile({ itemId: entry.output.item, ...outputOptions }), reason: capacity ? 'capacity' : null };
   }
   function craft(state, recipeId, stations) {
     const result = checkRecipe(state, recipeId, stations);
     if (!result.ok) return result;
+    const I = root.ForestInventory, before = new Set(I.refs(state).map(ref => I.get(state, ref)?.uid).filter(Boolean));
     // A validação acontece antes de qualquer débito: uma falha não perde materiais.
-    if (!root.ForestInventory.transaction(state, result.recipe.ingredients, { [result.recipe.output.item]: result.recipe.output.count })) return { ...result, ok: false, reason: 'capacity' };
+    if (!root.ForestInventory.transaction(state, result.recipe.ingredients, { [result.recipe.output.item]: result.recipe.output.count }, true, { [result.recipe.output.item]: result.outputOptions })) return { ...result, ok: false, reason: 'capacity' };
+    result.created = I.refs(state).map(ref => I.get(state, ref)).filter(s => s && !before.has(s.uid) && s.itemId === result.recipe.output.item).map(s => s.uid);
     return result;
   }
   function canPlace(state, id) {
@@ -1198,7 +1253,9 @@ body.sessions-open #journey-panel{visibility:hidden}
     renderGround(g, bounds, time) {
       // Deixe apenas a marca da coleta no ambiente, sem ícones ou loot no chão.
       for (const o of this.world.objectsInRect ? this.world.objectsInRect(bounds.left - 20, bounds.top - 20, bounds.right + 20, bounds.bottom + 20) : this.world.objects) {
-        if (!this.removed.has(o.id) || o.x < bounds.left - 20 || o.x > bounds.right + 20 || o.y < bounds.top - 20 || o.y > bounds.bottom + 20) continue;
+        const exhausted = this.removed.has(o.id), surfaceUsed = this.removed.has('forage:' + o.id);
+        if ((!exhausted && !surfaceUsed) || o.x < bounds.left - 20 || o.x > bounds.right + 20 || o.y < bounds.top - 20 || o.y > bounds.bottom + 20) continue;
+        if (surfaceUsed && !exhausted) { g.fillStyle = '#b3aa78'; g.fillRect(o.x - 3, o.y - 5, 6, 2); continue; }
         if (['tree', 'palm', 'log'].includes(o.type)) {
           g.fillStyle = '#4d3926'; g.fillRect(o.x - 7, o.y - 7, 14, 10);
           g.fillStyle = '#ac8a51'; g.fillRect(o.x - 7, o.y - 9, 14, 4); g.fillStyle = '#725735'; g.fillRect(o.x - 3, o.y - 8, 6, 2);
@@ -1254,6 +1311,12 @@ body.sessions-open #journey-panel{visibility:hidden}
         g.strokeStyle = spot.valid ? '#b9d98b' : '#e39678'; g.lineWidth = 1; g.setLineDash([4, 3]); g.strokeRect(spot.x - w / 2 - 3, spot.y - h / 2 - 3, w + 6, h + 6); g.setLineDash([]);
       }
       for (const e of this.effects) {
+        if (e.kind === 'impact') {
+          const age = this.services.reducedMotion?.() ? 0 : e.age; if (e.age > .4) continue;
+          g.globalAlpha = Math.max(0, 1 - e.age / .4); g.fillStyle = e.sourceType === 'rock' ? '#c0c8af' : ['tree', 'palm', 'log'].includes(e.sourceType) ? '#d3aa70' : '#a7bd72';
+          for (let i = 0; i < 4; i++) { const sign = i % 2 ? 1 : -1; g.fillRect(Math.round(e.x + sign * (3 + age * (18 + i * 5))), Math.round(e.y - 3 - age * (25 + i * 7) + age * age * 60), 2, 2); }
+          continue;
+        }
         g.globalAlpha = Math.max(0, 1 - e.age / 1.5); g.font = 'bold 9px monospace'; g.textAlign = 'center';
         g.strokeStyle = '#172c21'; g.lineWidth = 3; g.strokeText(e.text, e.x, e.y - 20 - e.age * 18); g.fillStyle = '#eee3b1'; g.fillText(e.text, e.x, e.y - 20 - e.age * 18);
       }
@@ -1262,16 +1325,60 @@ body.sessions-open #journey-panel{visibility:hidden}
       if (this.state.litTorch) {
         g.fillStyle = '#b08548'; g.fillRect(p.x - 14, p.y - 23, 2, 16); g.fillStyle = '#f0af55'; g.fillRect(p.x - 16, p.y - 29 + Math.sin(time * 9), 6, 8); g.fillStyle = '#ffe29a'; g.fillRect(p.x - 14, p.y - 27, 2, 5);
       }
-      if (root.ForestInventory.active(this.state)?.itemId) {
-        const x = Math.round(p.x + 12), y = Math.round(p.y - 12), id = root.ForestInventory.active(this.state)?.itemId;
-        g.fillStyle = '#ab8555'; g.fillRect(x, y - (id === 'stone_spear' ? 19 : 9), 2, id === 'stone_spear' ? 31 : 15);
-        g.fillStyle = '#b3baa1'; g.fillRect(x - (id === 'stone_pickaxe' ? 6 : 2), y - (id === 'stone_spear' ? 23 : 12), id === 'stone_pickaxe' ? 14 : 7, 5);
+      const held = root.ForestInventory.active(this.state);
+      if (root.ForestItems[held?.itemId]?.kind === 'tool' && held.itemId !== 'torch') {
+        const x = Math.round(p.x + (p.direction === 'left' ? -12 : 12)), y = Math.round(p.y - 12), id = held.itemId;
+        g.save(); g.translate(x, y); if (this.harvesting && time) g.rotate(Math.sin(time * 12) * .35);
+        g.fillStyle = '#ab8555'; g.fillRect(0, -(id === 'stone_spear' ? 19 : 9), 2, id === 'stone_spear' ? 31 : 15);
+        g.fillStyle = '#b3baa1'; g.fillRect(-(id === 'stone_pickaxe' ? 6 : 2), -(id === 'stone_spear' ? 23 : 12), id === 'stone_pickaxe' ? 14 : 7, 5);
+        if (root.ForestTools.profile(held)?.quality > 1) { g.fillStyle = '#d6b478'; g.fillRect(-1, -2, 4, 2); }
+        g.restore();
       }
     }
   }
   const methods = Object.getOwnPropertyDescriptors(SurvivalRenderMethods.prototype);
   delete methods.constructor;
   root.ForestSurvivalRenderer = Object.freeze({ methods });
+})(typeof window === 'undefined' ? globalThis : window);
+
+</script>
+<script data-module="src/survival/resources.js">
+/* Estoques finitos por fonte. Os marcadores salvos consomem lotes inteiros;
+ * o carregamento de um chunk nunca recria um lote consumido. */
+(function (root) {
+  'use strict';
+  const T = root.ForestTools;
+  const pool = (duration, effort, loot) => Object.freeze({ duration, effort, loot: Object.freeze(loot) });
+  const DEFINITIONS = Object.freeze({
+    tree: Object.freeze({ name: 'Árvore', toolClass: 'axe', requiredItem: 'stone_axe', hand: pool(1.25, 4, { branch: 1, leaf: 1 }), work: pool(2.4, 7, { wood: 4, branch: 1, leaf: 2 }) }),
+    palm: Object.freeze({ name: 'Palmeira', toolClass: 'axe', requiredItem: 'stone_axe', hand: pool(1.25, 4, { branch: 1, leaf: 1 }), work: pool(2.4, 7, { wood: 4, branch: 1, leaf: 2 }) }),
+    log: Object.freeze({ name: 'Tronco caído', toolClass: 'axe', requiredItem: 'stone_axe', hand: pool(1.25, 4, { branch: 1, leaf: 1 }), work: pool(1.8, 7, { wood: 3, branch: 1, leaf: 1 }) }),
+    rock: Object.freeze({ name: 'Rocha', toolClass: 'pickaxe', requiredItem: 'stone_pickaxe', hand: pool(1.4, 4, { stone: 1 }), work: pool(2.5, 7, { stone: 4, stone_flake: 1 }) }),
+    bush: Object.freeze({ name: 'Moita', hand: pool(1.15, 2.5, { plant_fiber: 3, leaf: 1 }) }),
+    fern: Object.freeze({ name: 'Tufo de capim', hand: pool(.8, 3, { grass: 3, leaf: 1 }) }),
+    flower: Object.freeze({ name: 'Folhas silvestres', hand: pool(.65, 2.5, { leaf: 2 }) })
+  });
+  function sum(contents) { return Object.values(contents).reduce((total, n) => total + n, 0); }
+  function inspect(object, removed) {
+    const definition = DEFINITIONS[object?.type]; if (!definition) return null;
+    const depleted = removed.has(object.id), surfaceUsed = !!definition.toolClass && removed.has('forage:' + object.id);
+    const hand = depleted || surfaceUsed ? {} : { ...definition.hand.loot };
+    if (object.type === 'bush' && !depleted && object.variant % 2 === 0) hand.raw_food = 1;
+    const work = depleted || !definition.work ? {} : { ...definition.work.loot };
+    return { definition, depleted, surfaceUsed, hand, work, handRemaining: sum(hand), workRemaining: sum(work) };
+  }
+  function action(object, removed, active) {
+    const source = inspect(object, removed); if (!source) return null;
+    const { definition } = source, tool = T.profile(active), toolReady = !!definition.toolClass && tool?.workType === definition.toolClass;
+    const method = toolReady ? definition.toolClass : 'hand', contents = toolReady ? source.work : source.hand, specification = toolReady ? definition.work : definition.hand;
+    const available = sum(contents), allowed = !source.depleted && available > 0;
+    return { method, allowed, reason: source.depleted ? 'depleted' : !available ? 'requires_tool' : null,
+      requiredTool: definition.requiredItem || null, toolReady, tool: toolReady ? tool : null,
+      contents, available, source, duration: specification.duration / (toolReady ? tool.workSpeed : 1), effort: specification.effort,
+      marker: toolReady || !definition.toolClass ? object.id : 'forage:' + object.id,
+      removesSource: toolReady || !definition.toolClass };
+  }
+  root.ForestResources = Object.freeze({ DEFINITIONS, inspect, action });
 })(typeof window === 'undefined' ? globalThis : window);
 
 </script>
@@ -1282,9 +1389,7 @@ body.sessions-open #journey-panel{visibility:hidden}
  */
 (function (root) {
   'use strict';
-  const C = root.ForestCraft, I = root.ForestInventory;
-  const naturalNames = { tree: 'Árvore', palm: 'Palmeira', rock: 'Rocha', log: 'Tronco caído', bush: 'Moita', fern: 'Tufo de capim', flower: 'Folhas silvestres' };
-  const HARVEST_TIME = { bush: 1.15, fern: .8, flower: .65 };
+  const C = root.ForestCraft, I = root.ForestInventory, R = root.ForestResources;
   const facing = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
@@ -1311,14 +1416,16 @@ body.sessions-open #journey-panel{visibility:hidden}
       return I.active(this.state)?.itemId === id;
     }
     naturalTarget(o) {
-      const isTree = ['tree', 'palm', 'log'].includes(o.type), isRock = o.type === 'rock';
-      const tool = isTree ? 'stone_axe' : isRock ? 'stone_pickaxe' : null;
-      const foraged = this.removed.has('forage:' + o.id);
-      const toolReady = !!tool && this.isToolEquipped(tool);
-      const allowed = !tool || toolReady || !foraged;
-      const detail = !allowed ? I.countOf(this.state, tool) ? `Equipe o ${C.ITEMS[tool].name.toLowerCase()} na mochila.` : `Precisa de ${C.ITEMS[tool].name.toLowerCase()}` : toolReady ? isTree ? 'Segure E ou toque para cortar com o machado' : 'Segure E ou toque para minerar com a picareta' : isTree ? 'Segure para retirar um galho seco, sem derrubar' : isRock ? 'Segure para retirar uma pedra da superfície' : o.type === 'bush' ? 'Segure para retirar fibras vegetais da moita' : o.type === 'fern' ? 'Segure para colher capim' : 'Segure para colher folhas';
+      const plan = R.action(o, this.removed, I.active(this.state)); if (!plan) return null;
+      const definition = plan.source.definition, tool = plan.requiredTool;
+      const detail = !plan.allowed ? plan.reason === 'depleted' ? 'Esta fonte está esgotada.' : I.countOf(this.state, tool) ? `Equipe o ${C.ITEMS[tool].name.toLowerCase()} na mochila.` : `Precisa de ${C.ITEMS[tool].name.toLowerCase()}` : plan.toolReady ? plan.method === 'axe' ? 'Segure E ou toque para cortar com o machado' : 'Segure E ou toque para minerar com a picareta' : definition.toolClass === 'axe' ? 'Segure para retirar um galho seco, sem derrubar' : definition.toolClass === 'pickaxe' ? 'Segure para retirar uma pedra da superfície' : o.type === 'bush' ? 'Segure para retirar fibras vegetais da moita' : o.type === 'fern' ? 'Segure para colher capim' : 'Segure para colher folhas';
       const harvesting = this.harvesting?.id === o.id;
-      return { kind: 'natural', item: o, label: o.type === 'bush' && o.variant % 2 === 0 ? 'Moita com frutos' : naturalNames[o.type], detail, action: toolReady ? isTree ? 'Cortar' : 'Minerar' : 'Coletar', allowed, toolReady, requiredTool: tool, x: o.x, y: o.y, harvesting, progress: harvesting ? this.harvesting.elapsed / this.harvesting.duration : 0 };
+      return { kind: 'natural', item: o, label: o.type === 'bush' && o.variant % 2 === 0 ? 'Moita com frutos' : definition.name,
+        detail, action: plan.toolReady ? plan.method === 'axe' ? 'Cortar' : 'Minerar' : 'Coletar', allowed: plan.allowed,
+        toolReady: plan.toolReady, requiredTool: tool, method: plan.method, tool: plan.tool,
+        duration: harvesting ? this.harvesting.duration : plan.duration, remaining: plan.allowed ? plan.contents : plan.source.work,
+        available: plan.available, surfaceRemaining: plan.source.handRemaining, workRemaining: plan.source.workRemaining,
+        x: o.x, y: o.y, harvesting, progress: harvesting ? this.harvesting.elapsed / this.harvesting.duration : 0 };
     }
     targetCandidates() {
       const p = this.services.player(), candidates = [];
@@ -1329,7 +1436,7 @@ body.sessions-open #journey-panel{visibility:hidden}
       }
       for (const o of this.world.objectsInRect ? this.world.objectsInRect(p.x - 56, p.y - 56, p.x + 56, p.y + 56) : this.world.objects) {
         if (this.removed.has(o.id) || Math.hypot(o.x - p.x, o.y - p.y) >= 56) continue;
-        candidates.push(this.naturalTarget(o));
+        const target = this.naturalTarget(o); if (target) candidates.push(target);
       }
       return candidates;
     }
@@ -1383,13 +1490,15 @@ body.sessions-open #journey-panel{visibility:hidden}
       if (t.kind === 'placement') { this.place(); return; }
       if (t.kind === 'natural') {
         if (this.harvesting?.id === t.item.id) return;
-        const type = t.item.type, tree = ['tree', 'palm', 'log'].includes(type);
+        const plan = R.action(t.item, this.removed, I.active(this.state));
+        if (!plan?.allowed) return;
         if (this.state.vigor <= 0) { this.notify('Sem vigor para coletar. Descanse ou coma um alimento.'); return; }
-        const duration = HARVEST_TIME[type] || (tree ? t.toolReady ? type === 'log' ? 1.8 : 2.4 : 1.25 : t.toolReady ? 2.5 : 1.4);
         const environment = this.world.environmentAt?.(this.services.player().x, this.services.player().y);
         const affinity = root.ForestOrigins?.effect(this.services.origin?.(), environment?.id);
-        const effort = (t.toolReady ? 7 : tree || type === 'rock' ? 4 : type === 'fern' ? 3 : 2.5) * (affinity?.effort || 1);
-        this.harvesting = { id: t.item.id, elapsed: 0, duration, effort, toolReady: t.toolReady, toolUid: t.toolReady ? I.active(this.state)?.uid : null };
+        this.harvesting = { id: t.item.id, elapsed: 0, duration: plan.duration, effort: plan.effort * (affinity?.effort || 1),
+          method: plan.method, marker: plan.marker, quality: plan.tool?.quality || null, nextCue: .45,
+          toolReady: plan.toolReady, toolUid: plan.toolReady ? I.active(this.state)?.uid : null };
+        this.harvestCue(t.item);
         return;
       }
       this.cooldown = .28;
@@ -1401,29 +1510,34 @@ body.sessions-open #journey-panel{visibility:hidden}
       this.changed();
     }
     releaseHarvest() { this.harvesting = null; }
+    harvestCue(object) {
+      this.services.harvestSound?.(object.type);
+      this.effects.push({ kind: 'impact', sourceType: object.type, x: object.x, y: object.y - (['tree', 'palm'].includes(object.type) ? 22 : 8), age: 0 });
+    }
     finishHarvest(t) {
-      if (t?.kind === 'natural' && t.allowed && !this.removed.has(t.item.id)) {
-        const o = t.item, tree = ['tree', 'palm', 'log'].includes(o.type);
-        let loot, marker = o.id, tool = null;
-        if (tree && this.isToolEquipped('stone_axe')) { loot = { wood: o.type === 'log' ? 3 : 4, branch: 1, leaf: o.type === 'log' ? 1 : 2 }; tool = I.active(this.state); }
-        else if (tree) { loot = { branch: 1, leaf: 1 }; marker = 'forage:' + o.id; }
-        else if (o.type === 'rock' && this.isToolEquipped('stone_pickaxe')) { loot = { stone: 4, stone_flake: 1 }; tool = I.active(this.state); }
-        else if (o.type === 'rock') { loot = { stone: 1 }; marker = 'forage:' + o.id; }
-        else loot = o.type === 'bush' ? { plant_fiber: 3, leaf: 1, ...(o.variant % 2 === 0 ? { raw_food: 1 } : {}) } : o.type === 'fern' ? { grass: 3, leaf: 1 } : { leaf: 2 };
-        if (this.give(loot, o.x, o.y)) {
-          this.removed.add(marker);
-          if (tool) { const wear = I.damage(this.state, I.activeRef(this.state), 1, tool.uid); if (wear?.broken) this.notify(`${C.ITEMS[tool.itemId].name} quebrou.`); }
+      const h = this.harvesting;
+      if (!h || t?.kind !== 'natural' || t.item.id !== h.id || h.elapsed + 1e-8 < h.duration) return false;
+      // Reconsulta o estoque e a instância: um alvo antigo não pode repetir a retirada.
+      const plan = R.action(t.item, this.removed, I.active(this.state));
+      if (!plan?.allowed || plan.marker !== h.marker || plan.method !== h.method || h.toolReady && (I.active(this.state)?.uid !== h.toolUid || plan.tool.quality !== h.quality)) { this.releaseHarvest(); return false; }
+      const awarded = this.give(plan.contents, t.item.x, t.item.y);
+      if (awarded) {
+        this.removed.add(plan.marker);
+        if (plan.toolReady) {
+          const wear = I.damage(this.state, I.activeRef(this.state), 1, h.toolUid);
+          if (wear?.broken) this.notify(`${C.ITEMS[wear.itemId].name} quebrou.`);
         }
       }
       this.harvesting = null; this.cooldown = .28;
       this.state.depleted = [...this.removed]; this.world.setRemoved(this.state.depleted); this.changed();
+      return awarded;
     }
     craft(id) {
       const result = C.craft(this.state, id, this.stations);
       if (!result.ok) { this.notify(result.reason === 'capacity' ? 'Mochila cheia. Libere espaço para o resultado.' : result.stationMissing ? 'Coloque a estação no chão e aproxime-se dela.' : 'Ainda faltam materiais para essa receita.'); return false; }
       const item = C.ITEMS[result.recipe.output.item];
       this.notify(`${item.name} ×${result.recipe.output.count} fabricado${result.recipe.output.count > 1 ? 's' : ''}.${item.kind === 'structure' ? ' Clique no item do inventário para colocar.' : ''}`);
-      if (item.kind === 'tool' && item.id !== 'torch') { const ref = I.refs(this.state).find(r => { const s = I.get(this.state, r); return s?.itemId === item.id && s.durability === item.durability && r.bag !== 'equipment'; }); if (ref) I.equip(this.state, ref); }
+      if (item.kind === 'tool' && item.id !== 'torch') { const uid = result.created?.[0], ref = I.refs(this.state).find(r => I.get(this.state, r)?.uid === uid); if (ref) I.equip(this.state, ref); }
       this.changed(); return true;
     }
     useItem(id, ref, expectedUid) {
@@ -1464,7 +1578,7 @@ body.sessions-open #journey-panel{visibility:hidden}
       }
       if (this.harvesting) {
         const target = this.target;
-        if (paused || moving || target?.kind !== 'natural' || target.item.id !== this.harvesting.id || !target.allowed || target.toolReady !== this.harvesting.toolReady || this.harvesting.toolReady && I.active(this.state)?.uid !== this.harvesting.toolUid) { this.releaseHarvest(); return; }
+        if (paused || moving || target?.kind !== 'natural' || target.item.id !== this.harvesting.id || !target.allowed || target.method !== this.harvesting.method || target.toolReady !== this.harvesting.toolReady || this.harvesting.toolReady && (I.active(this.state)?.uid !== this.harvesting.toolUid || target.tool?.quality !== this.harvesting.quality)) { this.releaseHarvest(); return; }
         const workTime = Math.min(Math.max(0, dt), this.harvesting.duration - this.harvesting.elapsed);
         const required = workTime * this.harvesting.effort;
         // Trabalhar custa vigor; apenas caminhar ou descansar recupera energia.
@@ -1475,6 +1589,7 @@ body.sessions-open #journey-panel{visibility:hidden}
         }
         this.state.vigor = Math.max(0, this.state.vigor - required);
         this.harvesting.elapsed += workTime;
+        if (this.harvesting.elapsed >= this.harvesting.nextCue && this.harvesting.elapsed < this.harvesting.duration) { this.harvestCue(target.item); this.harvesting.nextCue = this.harvesting.elapsed + .45; }
         if (this.harvesting.elapsed + 1e-8 >= this.harvesting.duration) this.finishHarvest(target);
       } else if (!paused) this.state.vigor = clamp(this.state.vigor + (running && moving ? -5 : moving ? 1 : 2) * dt, 0, 100);
     }
@@ -1499,10 +1614,11 @@ body.sessions-open #journey-panel{visibility:hidden}
   const refKey = ref => ref ? `${ref.bag}:${ref.index}` : '';
   function refFrom(el) { return el ? { bag: el.dataset.bag, index: el.dataset.bag === 'equipment' ? el.dataset.index : Number(el.dataset.index) } : null; }
   function slot(ref, compact = false) {
-    const s = I.get(state, ref), d = s && ForestItems[s.itemId], key = refKey(ref);
+    const s = I.get(state, ref), d = s && ForestItems[s.itemId], key = refKey(ref), tool = ForestTools.profile(s), maximum = tool?.maxDurability ?? d?.durability;
     const active = ref.bag === 'hotbar' && ref.index === state.inventory.selected && !state.inventory.useEquipment;
-    const name = d ? `${d.name}, ${s.quantity}/${d.maxStack}${s.durability == null ? '' : `, durabilidade ${Math.ceil(s.durability)}/${d.durability}`}` : 'Slot vazio';
-    return `<button type="button" class="inventory-slot real-slot${s ? ' has-item' : ' empty'}${active ? ' active-slot' : ''}${chosen && key === refKey(chosen.ref) ? ' chosen-slot' : ''}" data-bag="${ref.bag}" data-index="${ref.index}" ${s ? `data-uid="${escape(s.uid)}" data-item="${s.itemId}"` : ''} aria-label="${escape((labels[ref.index] || (ref.bag === 'hotbar' ? 'Acesso rápido ' + (ref.index + 1) : 'Slot ' + (Number(ref.index) + 1))) + ': ' + name)}" title="${escape(name)}">${ref.bag === 'hotbar' ? `<kbd class="slot-key">${ref.index + 1}</kbd>` : ''}${s ? ForestCraftUI.icon(s.itemId) + (d.maxStack > 1 ? `<span class="slot-amount">${s.quantity}</span>` : '') + (s.durability == null ? '' : `<span class="durability-track"><i style="width:${100 * s.durability / d.durability}%"></i></span>`) : '<span class="empty-mark">·</span>'}${!compact && ref.bag === 'equipment' ? `<small class="equipment-label">${labels[ref.index]}</small>` : ''}</button>`;
+    const name = d ? `${d.name}, ${s.quantity}/${d.maxStack}${s.durability == null ? '' : `, durabilidade ${Math.ceil(s.durability)}/${maximum}`}` : 'Slot vazio';
+    const toolDescription = tool?.workType ? ` · ${tool.qualityName} · Trabalho ×${tool.workSpeed.toFixed(2).replace('.', ',')}` : '';
+    return `<button type="button" class="inventory-slot real-slot${s ? ' has-item' : ' empty'}${active ? ' active-slot' : ''}${chosen && key === refKey(chosen.ref) ? ' chosen-slot' : ''}" data-bag="${ref.bag}" data-index="${ref.index}" ${s ? `data-uid="${escape(s.uid)}" data-item="${s.itemId}" data-quality="${tool?.quality || 1}"` : ''} aria-label="${escape((labels[ref.index] || (ref.bag === 'hotbar' ? 'Acesso rápido ' + (ref.index + 1) : 'Slot ' + (Number(ref.index) + 1))) + ': ' + name)}" title="${escape(name + toolDescription)}">${ref.bag === 'hotbar' ? `<kbd class="slot-key">${ref.index + 1}</kbd>` : ''}${tool?.workType && tool.quality > 1 ? '<span class="tool-quality" aria-label="Qualidade melhorada">II</span>' : ''}${s ? ForestCraftUI.icon(s.itemId) + (d.maxStack > 1 ? `<span class="slot-amount">${s.quantity}</span>` : '') + (s.durability == null ? '' : `<span class="durability-track"><i style="width:${100 * s.durability / maximum}%"></i></span>`) : '<span class="empty-mark">·</span>'}${!compact && ref.bag === 'equipment' ? `<small class="equipment-label">${labels[ref.index]}</small>` : ''}</button>`;
   }
   function select(ref, shift = false) {
     const s = I.get(state, ref);
@@ -1569,8 +1685,8 @@ body.sessions-open #journey-panel{visibility:hidden}
     if (near) { $('chest-items').innerHTML = `<div class="slots-grid">${I.refs(state, 'chest').filter(ref => ref.bag === 'chest' || I.get(state, ref)).map(ref => slot(ref, true)).join('')}</div>`; $('chest-total').textContent = `${Object.values(I.counts(state, 'chest')).reduce((a, b) => a + b, 0)} itens`; }
     $('withdraw-resources').disabled = !I.refs(state, 'chest').some(ref => I.get(state, ref));
     $('store-resources').disabled = !I.refs(state).some(ref => ['material', 'resource'].includes(ForestItems[I.get(state, ref)?.itemId]?.kind));
-    const s = selected(), d = s && ForestItems[s.itemId], inChest = chosen && ['chest', 'chestOverflow'].includes(chosen.ref.bag);
-    $('selected-item-note').textContent = s ? `${d.name} · ${s.quantity}/${d.maxStack}${s.durability == null ? '' : ` · Durabilidade ${Math.ceil(s.durability)}/${d.durability}`}` : 'Selecione uma pilha para ver suas ações.';
+    const s = selected(), d = s && ForestItems[s.itemId], tool = ForestTools.profile(s), maximum = tool?.maxDurability ?? d?.durability, inChest = chosen && ['chest', 'chestOverflow'].includes(chosen.ref.bag);
+    $('selected-item-note').textContent = s ? `${d.name} · ${s.quantity}/${d.maxStack}${s.durability == null ? '' : ` · Durabilidade ${Math.ceil(s.durability)}/${maximum}`}${tool?.workType ? ` · ${tool.qualityName} · Trabalho ×${tool.workSpeed.toFixed(2).replace('.', ',')}` : ''}` : 'Selecione uma pilha para ver suas ações.';
     $('slot-use').disabled = !s || inChest || !['tool', 'food', 'structure'].includes(d.kind);
     $('slot-move').disabled = !s; $('slot-transfer').disabled = !s || !near;
     $('slot-split').disabled = !s || s.quantity < 2; $('split-amount').disabled = !s || s.quantity < 2;
@@ -1631,7 +1747,7 @@ body.sessions-open #journey-panel{visibility:hidden}
       </div>
       <button id="seed-panel-toggle" class="glass-button" type="button" aria-expanded="false" aria-controls="seed-panel" title="Abrir configuração da seed"><span aria-hidden="true">#</span><span class="seed-toggle-label">Seed</span></button>
       <aside id="journey-panel" class="hidden" aria-label="Primeiros passos"><span class="eyebrow">PRIMEIROS PASSOS</span><ol id="journey-steps"></ol><p id="journey-complete" class="hidden">Acampamento iniciado.</p></aside>
-      <div id="interaction-hint" class="hidden"><button id="interact-button" type="button"><kbd>E</kbd><span><strong id="interaction-label">Coletar</strong><small id="interaction-detail"></small><span id="harvest-progress" class="hidden" role="progressbar" aria-label="Progresso da coleta" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="harvest-progress-fill"></i></span></span><span class="interact-arrow" aria-hidden="true">→</span></button><button id="cancel-placement" class="hidden" type="button" aria-label="Cancelar construção">Cancelar</button></div>
+      <div id="interaction-hint" class="hidden"><button id="interact-button" type="button"><kbd>E</kbd><span><strong id="interaction-label">Coletar</strong><small id="interaction-detail"></small><small id="interaction-stock" class="interaction-stock"></small><span id="harvest-progress" class="hidden" role="progressbar" aria-label="Progresso da coleta" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="harvest-progress-fill"></i></span></span><span class="interact-arrow" aria-hidden="true">→</span></button><button id="cancel-placement" class="hidden" type="button" aria-label="Cancelar construção">Cancelar</button></div>
       <section id="craft-panel" class="craft-layer hidden" role="dialog" aria-modal="true" aria-labelledby="craft-title">
         <div class="craft-window">
           <header class="craft-heading"><div><span class="eyebrow">ERA DA PEDRA · CRIAÇÃO</span><h2 id="craft-title">Tudo começa com as mãos.</h2><p>Recolha, transforme e construa seu primeiro acampamento.</p></div><button id="craft-close" class="close-button" type="button" aria-label="Fechar inventário">×</button></header>
@@ -1742,8 +1858,9 @@ body.sessions-open #journey-panel{visibility:hidden}
       const result = ForestCraft.checkRecipe(state, recipe.id, stations);
       const amount = recipe.output.count || 1;
       const station = recipe.station === 'workbench' ? 'Bancada' : recipe.station === 'campfire' ? 'Fogueira' : 'À mão';
+      const toolNote = result.toolStats?.workType ? `<p class="tool-recipe-stats">${result.toolStats.qualityName} · Trabalho ×${result.toolStats.workSpeed.toFixed(2).replace('.', ',')} · Durabilidade ${result.toolStats.maxDurability}${result.toolStats.quality === 1 ? ' · Uma bancada melhora o acabamento.' : ' · Acabamento na bancada.'}</p>` : '';
       const blocked = result.reason === 'capacity' ? 'Libere um slot para o resultado.' : result.stationMissing === 'workbench' ? 'Aproxime-se de uma bancada construída.' : result.stationMissing === 'campfire' ? 'Aproxime-se de uma fogueira construída.' : '';
-      return `<article class="recipe-card${result.ok ? ' craftable' : ''}" data-recipe="${recipe.id}"><div class="recipe-top"><div class="recipe-icon">${icon(recipe.output.item)}</div><div class="recipe-name"><h3>${escapeHTML(recipe.name)}${amount > 1 ? `<span>×${amount}</span>` : ''}</h3><p>${escapeHTML(recipe.description || ForestCraft.ITEMS[recipe.output.item]?.description || '')}</p></div><span class="recipe-station${result.stationMissing ? ' missing-station' : ''}">${station}</span></div><div class="recipe-bottom"><div class="ingredients">${Object.entries(recipe.ingredients).map(([id, need]) => `<span class="ingredient ${count(state.inventory, id) >= need ? 'enough' : 'insufficient'}" title="${escapeHTML(ForestCraft.ITEMS[id]?.name || id)}">${icon(id)}<span>${count(state.inventory, id)}/${need}</span><small>${escapeHTML(ForestCraft.ITEMS[id]?.name || id)}</small></span>`).join('')}</div><button class="make-button" type="button" data-craft="${recipe.id}" ${result.ok ? '' : 'disabled'} aria-label="Fabricar ${escapeHTML(recipe.name)}">Fabricar <span aria-hidden="true">+</span></button></div>${blocked ? `<p class="station-warning">${blocked}</p>` : ''}</article>`;
+      return `<article class="recipe-card${result.ok ? ' craftable' : ''}" data-recipe="${recipe.id}"><div class="recipe-top"><div class="recipe-icon">${icon(recipe.output.item)}</div><div class="recipe-name"><h3>${escapeHTML(recipe.name)}${amount > 1 ? `<span>×${amount}</span>` : ''}</h3><p>${escapeHTML(recipe.description || ForestCraft.ITEMS[recipe.output.item]?.description || '')}</p></div><span class="recipe-station${result.stationMissing ? ' missing-station' : ''}">${station}</span></div><div class="recipe-bottom"><div class="ingredients">${Object.entries(recipe.ingredients).map(([id, need]) => `<span class="ingredient ${count(state.inventory, id) >= need ? 'enough' : 'insufficient'}" title="${escapeHTML(ForestCraft.ITEMS[id]?.name || id)}">${icon(id)}<span>${count(state.inventory, id)}/${need}</span><small>${escapeHTML(ForestCraft.ITEMS[id]?.name || id)}</small></span>`).join('')}</div><button class="make-button" type="button" data-craft="${recipe.id}" ${result.ok ? '' : 'disabled'} aria-label="Fabricar ${escapeHTML(recipe.name)}">Fabricar <span aria-hidden="true">+</span></button></div>${toolNote}${blocked ? `<p class="station-warning">${blocked}</p>` : ''}</article>`;
     }).join('');
     if (focusRecipe) ($('recipe-list').querySelector(`[data-craft="${focusRecipe}"]:not(:disabled)`) || $('craft-close')).focus({ preventScroll: true });
   }
@@ -1799,6 +1916,11 @@ body.sessions-open #journey-panel{visibility:hidden}
     if (!show) return;
     const name = typeof placement === 'string' ? ForestCraft.ITEMS[placement]?.name || placement : '';
     $('interaction-label').textContent = harvesting ? 'Coletando...' : placement ? `${context.placementMode === 'move' ? 'Mover' : 'Posicionar'} ${name}` : target.label || target.action || 'Coletar';
+    const contents = Object.entries(target?.remaining || {}).map(([id, n]) => `${n}× ${ForestCraft.ITEMS[id]?.name || id}`).join(' · ');
+    const duration = target?.duration ? ` · ${target.duration.toFixed(2).replace('.', ',')} s` : '';
+    const method = target?.tool ? ` · ${target.tool.qualityName} ×${target.tool.workSpeed.toFixed(2).replace('.', ',')}` : ' · À mão';
+    $('interaction-stock').textContent = target?.kind === 'natural' && contents ? 'Disponível: ' + contents + (target.allowed ? duration + method : '') : '';
+    $('interaction-stock').classList.toggle('hidden', target?.kind !== 'natural');
     $('interaction-detail').textContent = target?.detail || (placement ? 'E ou toque para confirmar · Esc cancela' : '');
     $('interact-button').disabled = target?.allowed === false;
     $('interact-button').classList.toggle('unavailable', target?.allowed === false);
@@ -1813,7 +1935,8 @@ body.sessions-open #journey-panel{visibility:hidden}
     const equipped = ForestCraft.ITEMS[ForestInventory.active(state)?.itemId];
     const names = { stone_axe: 'Machado', stone_pickaxe: 'Picareta', stone_spear: 'Lança', torch: 'Tocha' };
     $('equipped-label').textContent = equipped ? names[equipped.id] || equipped.name : 'Mãos livres';
-    $('equipped-label').title = equipped?.name || 'Equipe uma ferramenta na mochila para usá-la.';
+    const activeTool = ForestTools.profile(ForestInventory.active(state));
+    $('equipped-label').title = activeTool?.workType ? `${equipped.name} · ${activeTool.qualityName} · Trabalho ×${activeTool.workSpeed.toFixed(2)} · Durabilidade ${Math.ceil(activeTool.durability)}/${activeTool.maxDurability}` : equipped?.name || 'Equipe uma ferramenta na mochila para usá-la.';
     setHint(context.target, context.placement);
     renderGoals(); renderContents();
   }
@@ -2313,13 +2436,14 @@ window.ForestOriginAtlas={"columns":4,"rows":8,"frames":[{"x":84,"y":7,"width":9
     }
 
     function drawObject(g, o) {
-      const { player } = readState();
+      const { player, survival, elapsed, reducedMotion } = readState();
       const sprite = sprites.get(o.type + (o.variant % 6)) || sprites.get('fern0');
       const size = o.type === 'tree' ? 1.25 : o.type === 'palm' ? 1.35 : 1;
       const scale = (o.scale || 1) * size, x = o.x - 40 * scale, y = o.y - 102 * scale;
       const overlaps = (o.type === 'tree' || o.type === 'palm') && player.y < o.y - 8 && player.y > y && Math.abs(player.x - o.x) < 30 * scale;
       if (overlaps) g.globalAlpha = .48;
-      g.drawImage(sprite, Math.round(x), Math.round(y), Math.round(80 * scale), Math.round(108 * scale));
+      const working = survival.harvesting?.id === o.id && !reducedMotion, shake = working ? Math.sin(elapsed * 24) * (o.type === 'rock' ? .6 : 1.2) : 0;
+      g.drawImage(sprite, Math.round(x + shake), Math.round(y), Math.round(80 * scale), Math.round(108 * scale));
       g.globalAlpha = 1;
     }
 
@@ -2499,7 +2623,7 @@ window.ForestOriginAtlas={"columns":4,"rows":8,"frames":[{"x":84,"y":7,"width":9
         const key = e.key.toLowerCase();
         if (root.ForestCraftUI.isOpen) return;
         if (/^[1-9]$/.test(key) && !state.mapOpen && !state.helpOpen) { e.preventDefault(); state.survival?.selectSlot(Number(key) - 1); actions.refreshCraft(); return; }
-        if (key === 'e' && !e.repeat && state.started && !state.mapOpen && !state.helpOpen) { e.preventDefault(); state.survival.interact(); actions.refreshCraft(); return; }
+        if (key === 'e' && !e.repeat && state.started && !state.mapOpen && !state.helpOpen) { e.preventDefault(); void root.ForestSound?.unlock(); state.survival.interact(); actions.refreshCraft(); return; }
         if (['arrowup', 'arrowdown', 'arrowleft', 'arrowright', ' '].includes(key)) e.preventDefault();
         if (key === 'm' && !e.repeat) actions.toggleMap();
         if ((key === '?' || key === 'h') && !e.repeat) actions.toggleHelp();
@@ -2545,6 +2669,48 @@ window.ForestOriginAtlas={"columns":4,"rows":8,"frames":[{"x":84,"y":7,"width":9
 })(typeof window === 'undefined' ? globalThis : window);
 
 </script>
+<script data-module="src/audio/harvest-audio.js">
+/* Efeitos curtos sintetizados, opcionais e sem arquivos externos/autoplay. */
+(function (root) {
+  'use strict';
+  const KEY = 'origem-harvest-sound-v1';
+  let enabled = false, context = null, played = 0, last = -Infinity;
+  try { enabled = root.localStorage.getItem(KEY) === 'on'; } catch (_) {}
+  function available() { return typeof (root.AudioContext || root.webkitAudioContext) === 'function'; }
+  function persist() { try { root.localStorage.setItem(KEY, enabled ? 'on' : 'off'); } catch (_) {} }
+  async function unlock() {
+    if (!enabled || !available()) return false;
+    try {
+      if (!context) context = new (root.AudioContext || root.webkitAudioContext)();
+      if (context.state === 'suspended') await context.resume();
+      return context.state === 'running';
+    } catch (_) { return false; }
+  }
+  async function setEnabled(value) {
+    enabled = value === true && available(); persist();
+    if (enabled) await unlock(); else if (context?.state === 'running') { try { await context.suspend(); } catch (_) {} }
+    return enabled;
+  }
+  function harvest(type) {
+    if (!enabled) return false;
+    if (!context || context.state !== 'running') { void unlock(); return false; }
+    const now = context.currentTime; if (now - last < .12) return false; last = now;
+    try {
+      const stone = type === 'rock', wood = ['tree', 'palm', 'log'].includes(type), length = wood ? .10 : stone ? .09 : .14;
+      const buffer = context.createBuffer(1, Math.floor(context.sampleRate * length), context.sampleRate), samples = buffer.getChannelData(0);
+      for (let i = 0; i < samples.length; i++) samples[i] = (Math.random() * 2 - 1) * (1 - i / samples.length);
+      const source = context.createBufferSource(), filter = context.createBiquadFilter(), gain = context.createGain();
+      source.buffer = buffer; filter.type = wood ? 'lowpass' : 'bandpass'; filter.frequency.value = wood ? 650 : stone ? 2400 : 1250;
+      gain.gain.setValueAtTime(.0001, now); gain.gain.exponentialRampToValueAtTime(stone ? .065 : .085, now + .008); gain.gain.exponentialRampToValueAtTime(.0001, now + length);
+      source.connect(filter); filter.connect(gain); gain.connect(context.destination);
+      source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect(); };
+      source.start(now); source.stop(now + length); played++; return true;
+    } catch (_) { return false; }
+  }
+  root.ForestSound = Object.freeze({ available, unlock, setEnabled, harvest, get enabled() { return enabled; }, get state() { return { enabled, played, context: context?.state || 'not-created' }; } });
+})(window);
+
+</script>
 <script data-module="src/interface/interface.js">
 /* HUD, introdução, painéis e ligação dos botões. Não contém regras de fabricação.
  * ForestCraftUI desenha a mochila; o app fornece as ações de mundo/salvamento.
@@ -2588,6 +2754,9 @@ window.ForestOriginAtlas={"columns":4,"rows":8,"frames":[{"x":84,"y":7,"width":9
       input.clearKeys(); if (state.helpOpen) { root.ForestCraftUI.close(); if (state.mapOpen) toggleMap(false); $('help-close').focus(); }
     }
     function bind() {
+      const soundButton = $('sound-toggle');
+      const refreshSound = () => { soundButton.textContent = root.ForestSound.available() ? 'Sons da coleta: ' + (root.ForestSound.enabled ? 'ativados' : 'desligados') : 'Som indisponível neste navegador'; soundButton.setAttribute('aria-pressed', String(root.ForestSound.enabled)); soundButton.disabled = !root.ForestSound.available(); };
+      soundButton.addEventListener('click', async () => { await root.ForestSound.setEnabled(!root.ForestSound.enabled); refreshSound(); }); refreshSound();
       $('start-button').addEventListener('click', start);
       $('map-toggle').addEventListener('click', () => toggleMap()); $('map-close').addEventListener('click', () => toggleMap(false));
       $('help-toggle').addEventListener('click', () => toggleHelp()); $('help-close').addEventListener('click', () => toggleHelp(false));
@@ -2623,8 +2792,8 @@ window.ForestOriginAtlas={"columns":4,"rows":8,"frames":[{"x":84,"y":7,"width":9
         splitSlot: (ref, amount, uid) => { state.survival.splitSlot(ref, amount, uid); refreshCraft(); },
         selectSlot: index => { state.survival.selectSlot(index); refreshCraft(); },
         transferSlot: (ref, uid) => { state.survival.transferSlot(ref, uid); refreshCraft(); },
-        interact: () => { if (!state.started) start(); if (!state.mapOpen && !state.helpOpen && !root.ForestCraftUI.isOpen) state.survival.interact(); refreshCraft(); },
-        beginInteract: () => { if (!state.started) start(); if (!state.mapOpen && !state.helpOpen && !root.ForestCraftUI.isOpen) state.survival.interact(); refreshCraft(); },
+        interact: () => { void root.ForestSound.unlock(); if (!state.started) start(); if (!state.mapOpen && !state.helpOpen && !root.ForestCraftUI.isOpen) state.survival.interact(); refreshCraft(); },
+        beginInteract: () => { void root.ForestSound.unlock(); if (!state.started) start(); if (!state.mapOpen && !state.helpOpen && !root.ForestCraftUI.isOpen) state.survival.interact(); refreshCraft(); },
         endInteract: () => { state.survival.releaseHarvest(); refreshCraft(); },
         deposit: () => state.survival.deposit(), withdraw: () => state.survival.withdraw(),
         cancelPlacement: () => { state.survival.cancelPlacement(); refreshCraft(); },
@@ -2643,7 +2812,7 @@ window.ForestOriginAtlas={"columns":4,"rows":8,"frames":[{"x":84,"y":7,"width":9
 /* Partidas independentes. IndexedDB guarda registros e a última cópia de segurança. */
 (function(root){
 'use strict';
-const VERSION=3, DB_NAME='origem-sessions', SIZES=[128,160,192,256,512,1024];
+const VERSION=4, DB_NAME='origem-sessions', SIZES=[128,160,192,256,512,1024];
 const ORIGINS=['water','earth','fire','air'], PALETTES=['blue','green','red','gold'];
 const clone=value=>JSON.parse(JSON.stringify(value));
 function uniqueId(){
@@ -2654,7 +2823,7 @@ function uniqueId(){
 }
 function text(value,max){if(typeof value!=='string'||!value.trim()||value.length>max)throw Error('Nome ou texto inválido.');return value.trim();}
 function validate(input){
- if(!input||![1,2,VERSION].includes(input.schemaVersion))throw Error('Versão de partida não suportada.');
+ if(!input||![1,2,3,VERSION].includes(input.schemaVersion))throw Error('Versão de partida não suportada.');
  const s=clone(input);text(s.id,150);s.character.name=text(s.character.name,40);s.world.name=text(s.world.name,60);s.world.seed=text(s.world.seed,64);
  if(!ORIGINS.includes(s.character.origin)||!PALETTES.includes(s.character.appearance?.palette)||!SIZES.includes(s.world.size))throw Error('Personagem ou tamanho de mundo inválido.');
  if(!Number.isInteger(s.revision)||s.revision<0||!Number.isFinite(s.createdAt)||!Number.isFinite(s.updatedAt))throw Error('Metadados inválidos.');
@@ -2699,7 +2868,7 @@ class Repository{
  insert(records,markers=[]){const sessions=records.map(validate);return this.transaction(['sessions','meta'],'readwrite',(tx,done,fail)=>{const st=tx.objectStore('sessions');let left=sessions.length;if(!left){done([]);return;}for(const s of sessions){const r=st.add(s);r.onerror=()=>{fail(r.error?.name==='ConstraintError'?Error('O ID desta partida já existe. Nenhuma partida foi sobrescrita.'):r.error||Error('Não foi possível criar a partida.')); };r.onsuccess=()=>{if(!--left){for(const marker of markers)tx.objectStore('meta').put(marker);done(sessions);}}}});}
  save(input){const s=validate(input);return this.transaction(['sessions','backups'],'readwrite',(tx,done,fail)=>{const st=tx.objectStore('sessions'),r=st.get(s.id);r.onsuccess=()=>{const old=r.result;if(!old){fail(Error('A partida não existe mais.'));return;}let normalized;try{normalized=validate(old);}catch(e){fail(e);return;}if(old.revision!==s.revision){fail(Error('Outra aba atualizou esta partida. Recarregue-a antes de salvar.'));return;}if(JSON.stringify(normalized.character)!==JSON.stringify(s.character)||JSON.stringify(normalized.world)!==JSON.stringify(s.world)){fail(Error('Identidade da partida divergente.'));return;}tx.objectStore('backups').put(old);const next={...s,revision:s.revision+1,updatedAt:Date.now()};st.put(next);done(next);};});}
  remove(id){return this.transaction(['sessions','backups'],'readwrite',(tx,done)=>{const st=tx.objectStore('sessions'),r=st.get(id);r.onsuccess=()=>{if(r.result)tx.objectStore('backups').put(r.result);st.delete(id);done(true);};});}
- async importJSON(raw){if(typeof raw!=='string'||raw.length>10000000)throw Error('Backup muito grande ou inválido.');const data=JSON.parse(raw);if(data.format!=='origem-backup'||![1,2,VERSION].includes(data.version)||!Array.isArray(data.sessions)||!data.sessions.length||data.sessions.length>100)throw Error('Formato de backup inválido.');const records=data.sessions.map(validate).map(s=>({...s,id:uniqueId(),revision:0,createdAt:Date.now(),updatedAt:Date.now()}));await this.insert(records);return records;}
+ async importJSON(raw){if(typeof raw!=='string'||raw.length>10000000)throw Error('Backup muito grande ou inválido.');const data=JSON.parse(raw);if(data.format!=='origem-backup'||![1,2,3,VERSION].includes(data.version)||!Array.isArray(data.sessions)||!data.sessions.length||data.sessions.length>100)throw Error('Formato de backup inválido.');const records=data.sessions.map(validate).map(s=>({...s,id:uniqueId(),revision:0,createdAt:Date.now(),updatedAt:Date.now()}));await this.insert(records);return records;}
  async exportJSON(id){const sessions=id?[await this.get(id)]:await this.list();if(sessions.some(s=>!s)||!sessions.length)throw Error('Nenhuma partida para exportar.');return JSON.stringify({format:'origem-backup',version:VERSION,exportedAt:Date.now(),sessions:sessions.map(validate)},null,2);}
  async restoreBackup(id){const s=await this.get(id,'backups');if(!s)throw Error('Cópia não encontrada.');s.id=uniqueId();s.revision=0;s.createdAt=s.updatedAt=Date.now();await this.insert([s]);return s;}
  async last(){return this.transaction(['meta'],'readonly',(tx,done)=>{const r=tx.objectStore('meta').get('last');r.onsuccess=()=>done(r.result?.value);});}
@@ -2735,7 +2904,7 @@ root.ForestSessions=Object.freeze({open,validate,make,uniqueId,VERSION,DB_NAME,S
 (function(root){'use strict';
 function mount({repository:db,load,save,pause,active,clearActive,loading}){
 const box=document.createElement('section');box.id='session-menu';box.className='session-menu';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Partidas do ORIGEM');
-box.innerHTML=`<div class="sessions-card"><span class="eyebrow">ORIGEM · SUAS HISTÓRIAS · v0.7.1</span><h1>Cada começo,<br>um novo mundo.</h1><p id="sessions-status" role="status">Suas partidas ficam separadas neste navegador.</p><div class="sessions-nav"><button id="session-new">Novo jogo</button><button id="session-continue">Continuar</button><button id="session-list">Carregar jogo</button><button id="session-close" class="hidden">Voltar ao jogo</button></div><form id="session-form" class="hidden" novalidate><label>Nome do personagem<input name="name" maxlength="40" required value="Sobrevivente"></label><fieldset id="origin-choice"><legend>Escolha sua origem</legend><p class="origin-intro">Quatro culturas. Um começo com as próprias mãos.</p><div class="origin-cards" role="radiogroup" aria-label="Origem elemental">${root.ForestOrigins.IDS.map((id,i)=>`<button type="button" class="origin-card" data-origin="${id}" role="radio" aria-checked="${i===0}" style="--origin-color:${root.ForestOrigins.DEFINITIONS[id].color}"><canvas width="128" height="150" aria-hidden="true"></canvas><span class="origin-card-name">${root.ForestOrigins.DEFINITIONS[id].name}</span><small>${root.ForestOrigins.DEFINITIONS[id].region}</small></button>`).join('')}</div><article id="origin-details" aria-live="polite"><h3 id="origin-culture"></h3><p id="origin-description"></p><dl><div><dt>Região inicial</dt><dd id="origin-region"></dd></div><div><dt>Afinidade</dt><dd id="origin-affinity"></dd></div><div><dt>Desafio ambiental</dt><dd id="origin-weakness"></dd></div><div><dt>Descobertas futuras</dt><dd id="origin-research"></dd></div><div><dt>Laços culturais iniciais</dt><dd id="origin-relations"></dd></div></dl><p class="origin-start-rule">Você chega sozinho, com mochila e equipamentos vazios. Nenhum poder está desbloqueado. Todas as origens acessam as mesmas tecnologias básicas.</p></article></fieldset><label>Origem selecionada<select name="origin"><option value="water">Água</option><option value="earth">Terra</option><option value="fire">Fogo</option><option value="air">Ar</option></select></label><label>Aparência inicial<select name="variant"><option value="masculine">Viajante</option><option value="feminine">Viajante de cabelos longos</option></select><input type="hidden" name="palette" value="blue"></label><label>Nome do mundo<input name="worldName" required maxlength="60" value="Meu primeiro mundo"></label><label>Seed<input name="seed" required maxlength="64" value="mata-ancestral"></label><label>Tamanho<select name="size"><option value="256">Exploração · 256 × 256</option><option value="512">Horizontes · 512 × 512</option><option value="1024">Continente · 1024 × 1024</option><option value="128">Pequeno · 128 × 128</option><option value="160">Médio · 160 × 160</option><option value="192">Clássico · 192 × 192</option></select></label><p id="session-form-error" class="hidden" role="alert"></p><button id="session-create" type="button">Criar partida independente →</button></form><div id="sessions-list" class="hidden"></div><div class="backup-tools"><button id="sessions-export-all">Exportar todas</button><label class="file-button">Importar backup JSON<input id="sessions-import" type="file" accept=".json,application/json"></label><button id="sessions-backups">Cópias locais</button></div><p class="session-note">Autosave a cada 3 segundos e após ações. Importações e restaurações criam novos slots. Sua origem define a cultura e a região inicial. Poderes continuam bloqueados até futuras pesquisas e descobertas.</p></div>`;
+box.innerHTML=`<div class="sessions-card"><span class="eyebrow">ORIGEM · SUAS HISTÓRIAS · v0.8.0</span><h1>Cada começo,<br>um novo mundo.</h1><p id="sessions-status" role="status">Suas partidas ficam separadas neste navegador.</p><div class="sessions-nav"><button id="session-new">Novo jogo</button><button id="session-continue">Continuar</button><button id="session-list">Carregar jogo</button><button id="session-close" class="hidden">Voltar ao jogo</button></div><form id="session-form" class="hidden" novalidate><label>Nome do personagem<input name="name" maxlength="40" required value="Sobrevivente"></label><fieldset id="origin-choice"><legend>Escolha sua origem</legend><p class="origin-intro">Quatro culturas. Um começo com as próprias mãos.</p><div class="origin-cards" role="radiogroup" aria-label="Origem elemental">${root.ForestOrigins.IDS.map((id,i)=>`<button type="button" class="origin-card" data-origin="${id}" role="radio" aria-checked="${i===0}" style="--origin-color:${root.ForestOrigins.DEFINITIONS[id].color}"><canvas width="128" height="150" aria-hidden="true"></canvas><span class="origin-card-name">${root.ForestOrigins.DEFINITIONS[id].name}</span><small>${root.ForestOrigins.DEFINITIONS[id].region}</small></button>`).join('')}</div><article id="origin-details" aria-live="polite"><h3 id="origin-culture"></h3><p id="origin-description"></p><dl><div><dt>Região inicial</dt><dd id="origin-region"></dd></div><div><dt>Afinidade</dt><dd id="origin-affinity"></dd></div><div><dt>Desafio ambiental</dt><dd id="origin-weakness"></dd></div><div><dt>Descobertas futuras</dt><dd id="origin-research"></dd></div><div><dt>Laços culturais iniciais</dt><dd id="origin-relations"></dd></div></dl><p class="origin-start-rule">Você chega sozinho, com mochila e equipamentos vazios. Nenhum poder está desbloqueado. Todas as origens acessam as mesmas tecnologias básicas.</p></article></fieldset><label>Origem selecionada<select name="origin"><option value="water">Água</option><option value="earth">Terra</option><option value="fire">Fogo</option><option value="air">Ar</option></select></label><label>Aparência inicial<select name="variant"><option value="masculine">Viajante</option><option value="feminine">Viajante de cabelos longos</option></select><input type="hidden" name="palette" value="blue"></label><label>Nome do mundo<input name="worldName" required maxlength="60" value="Meu primeiro mundo"></label><label>Seed<input name="seed" required maxlength="64" value="mata-ancestral"></label><label>Tamanho<select name="size"><option value="256">Exploração · 256 × 256</option><option value="512">Horizontes · 512 × 512</option><option value="1024">Continente · 1024 × 1024</option><option value="128">Pequeno · 128 × 128</option><option value="160">Médio · 160 × 160</option><option value="192">Clássico · 192 × 192</option></select></label><p id="session-form-error" class="hidden" role="alert"></p><button id="session-create" type="button">Criar partida independente →</button></form><div id="sessions-list" class="hidden"></div><div class="backup-tools"><button id="sessions-export-all">Exportar todas</button><label class="file-button">Importar backup JSON<input id="sessions-import" type="file" accept=".json,application/json"></label><button id="sessions-backups">Cópias locais</button></div><p class="session-note">Autosave a cada 3 segundos e após ações. Importações e restaurações criam novos slots. Sua origem define a cultura e a região inicial. Poderes continuam bloqueados até futuras pesquisas e descobertas.</p></div>`;
 document.body.append(box);const tools=document.createElement('div');tools.className='session-tools hidden';tools.innerHTML='<span id="active-session-name"></span><div><button id="session-save">Salvar</button><button id="session-menu-button">Partidas</button></div><span id="session-save-status" role="status"></span>';document.body.append(tools);
 const $=id=>document.getElementById(id),status=t=>$('sessions-status').textContent=t;
 let busy=false;
@@ -2851,7 +3020,7 @@ root.ForestLoading={create};
     if ((activeRecord?.character.appearance.style || 'legacy') === 'elemental') await ForestOriginArt.load();
     else await ForestPlayer.load();
     state.player = ForestPlayerController.create(state.world.spawn);
-    state.survival = new ForestSurvival(state.world, saved?.crafting, { player: () => state.player, toast: ui.toast, changed: changedCraft, origin: () => state.player.origin });
+    state.survival = new ForestSurvival(state.world, saved?.crafting, { player: () => state.player, toast: ui.toast, changed: changedCraft, harvestSound: type => ForestSound.harvest(type), reducedMotion: () => state.reducedMotion, origin: () => state.player.origin });
     ForestSave.restorePosition(saved, state.world, state.player, state.survival);
     if (['up','down','left','right'].includes(saved?.direction)) state.player.direction = saved.direction;
     state.player.palette = activeRecord?.character.appearance.palette || 'blue';
